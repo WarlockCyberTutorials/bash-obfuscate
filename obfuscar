@@ -1,0 +1,11 @@
+#!/bin/bash
+cd /mnt/binarios
+
+arquivos=$(basename -a *sh)
+
+for item in $arquivos
+do 
+    cp $item /mnt/backup
+    cd /mnt/backup
+    bash-obfuscate $item > /mnt/binarios/$(echo $item |cut -d'.' -f1)
+done

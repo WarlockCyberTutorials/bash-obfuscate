@@ -1,0 +1,17 @@
+FROM node
+
+LABEL Author="Douglas Raetê Mancini Sanches"
+
+WORKDIR /root
+
+RUN npm install -g bash-obfuscate
+
+RUN mkdir /mnt/binarios
+
+RUN mkdir /mnt/backup
+
+ADD ./obfuscar /root
+
+RUN chmod 777 obfuscar
+
+ENTRYPOINT [ "./obfuscar" ]
